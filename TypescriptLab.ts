@@ -12,16 +12,17 @@ let mountains: Mountain[] = [
     height:20310}];
 
 function findNameOfTallestMountain(mountains: Mountain[]) {
-    let tallestMountain= mountains[0];
+    let tallestMountain= mountains[0]; //because youre declaring this to a type of "Product" youll get a type error,
+    //you can avoid this by assiging tallestMountain to just element and then returing tallestMountain.name
     if (mountains.length <=0) {
         return "";
     }else{
        mountains.forEach(element =>{
         if(element.height > tallestMountain.height) {
-            tallestMountain=element.name;
+            tallestMountain=element;
         }
        });
-       return tallestMountain;
+       return tallestMountain.name;
     } 
   }
 
@@ -46,7 +47,7 @@ let products: Product[] = [
     price: 3.99}];
 
 function calcAverageProductPrice(products: Product[]) {
-    let averagePrice= products[0];
+    let averagePrice; //so with this type error here you can just declare it and not initialize it to avoid the type error
        if (products.length <=0) {
         return 0;
     }else{let sum =0;{
@@ -75,7 +76,7 @@ const inventory: InventoryItem[] =[
 ];
 
 function calcInventoryValue(inventory: InventoryItem[]){
-    let totalValue= inventory[0];
+    let totalValue; //same thing, no need to intitalize
         if (inventory.length <=0) {
             return 0;
         }else{let sum =0;{
